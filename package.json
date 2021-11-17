@@ -1,0 +1,22 @@
+{
+  "name": "proshop",
+  "version": "1.0.0",
+  "description": "mern shopping cart app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node ./backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/imran2244556677/ProShop-mern.git"
+  },
+  "author": "Imran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/imran2244556677/ProShop-mern/issues"
+  },
+  "homepage": "https://github.com/imran2244556677/ProShop-mern#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
