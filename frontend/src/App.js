@@ -16,9 +16,7 @@ const App = () => {
 						<Route path="/" exact>
 							<HomeScreen />
 						</Route>
-						<Route path="/product/:id">
-							<ProductScreen />
-						</Route>
+						<Route path="/product/:id" render={props => <ProductScreen match={props.match} />} />
 					</Container>
 				</main>
 				<Footer />
