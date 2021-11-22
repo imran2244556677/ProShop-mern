@@ -17,8 +17,8 @@ const App = () => {
 						<Route path="/" exact>
 							<HomeScreen />
 						</Route>
-						<Route path="/product/:id" render={props => <ProductScreen match={props.match} />} />
-						<Route path="/cart/:id?" render={props => <CartScreen match={props.match} />} />
+						<Route path="/product/:id" render={props => <ProductScreen match={props.match} history={props.history} />} />
+						<Route path="/cart/:id?" component={CartScreen} />
 					</Container>
 				</main>
 				<Footer />

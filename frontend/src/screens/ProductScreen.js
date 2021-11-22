@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Button, Card, Col, Form, Image, ListGroup, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { listProductDetails } from "../actions/productActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Rating from "../components/Rating";
 
-const ProductScreen = ({ match }) => {
-	const [qty, setQty] = useState(0);
+const ProductScreen = ({ history, match }) => {
+	const [qty, setQty] = useState(1);
 
 	const dispatch = useDispatch();
 
@@ -19,7 +19,6 @@ const ProductScreen = ({ match }) => {
 		dispatch(listProductDetails(match.params.id));
 	}, [dispatch, match]);
 
-	const history = useHistory();
 	const addToCartHandler = () => {
 		history.push(`/cart/${match.params.id}?qty=${qty}`);
 	}

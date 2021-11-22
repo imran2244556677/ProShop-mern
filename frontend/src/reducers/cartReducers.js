@@ -18,7 +18,6 @@ export const cartReducer = (state = { cartItems: [] }, action) => {
 					cartItems: [...state.cartItems, item],
 				};
 			}
-			break;
 
 		default:
 			return state;
