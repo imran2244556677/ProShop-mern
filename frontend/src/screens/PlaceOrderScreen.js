@@ -121,9 +121,11 @@ const PlaceOrderScreen = ({ history }) => {
                                 </Row>
                             </ListGroup.Item>
 
-                            {error && <ListGroup.Item>
-                                <Message variant="danger">{error}</Message>
-                            </ListGroup.Item>}
+                            {error && (
+                                <ListGroup.Item>
+                                    <Message variant="danger">{error}</Message>
+                                </ListGroup.Item>
+                            )}
 
                             <ListGroup.Item>
                                 <Button type="button" className="btn-block" disabled={cart.cartItems === 0} onClick={placeOrderHandler}>
