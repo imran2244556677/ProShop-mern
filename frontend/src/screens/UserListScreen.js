@@ -6,19 +6,26 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import { Button, Table } from "react-bootstrap";
 
-const UserListScreen = () => {
+const UserListScreen = ({ history }) => {
     const dispatch = useDispatch();
 
     const userList = useSelector((state) => state.userList);
     const { loading, users, error } = userList;
 
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
+
     useEffect(() => {
-        dispatch(listUsers());
-    }, [dispatch]);
+        if (userInfo && userInfo.isAdmin) {
+            dispatch(listUsers());
+        } else {
+            history.push("/login");
+        }
+    }, [dispatch, history]);
 
     const deleteHandler = (id) => {
 
-    }
+    };
 
     return (
         <>
