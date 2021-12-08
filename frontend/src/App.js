@@ -26,10 +26,9 @@ const App = () => {
                 <Header />
                 <main className="py-3">
                     <Container>
-                        <Route path="/" exact>
-                            <HomeScreen />
-                        </Route>
-                        <Route path="/product/:id" render={props => <ProductScreen match={props.match} history={props.history} />} />
+                        <Route path="/" exact render={(props) => <HomeScreen match={props.match} />} />
+                        <Route path="/search/:keyword" component={HomeScreen} />
+                        <Route path="/product/:id" render={(props) => <ProductScreen match={props.match} history={props.history} />} />
                         <Route path="/cart/:id?" component={CartScreen} />
                         <Route path="/login" component={LoginScreen} />
                         <Route path="/register" component={RegisterScreen} />

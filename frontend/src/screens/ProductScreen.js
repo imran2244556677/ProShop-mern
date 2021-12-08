@@ -26,12 +26,13 @@ const ProductScreen = ({ history, match }) => {
 
     useEffect(() => {
         if (successProductReview) {
-            alert("Review Submitted!");
             setRating(0);
             setComment("");
             dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+        } else {
+            dispatch({ type: PRODUCT_CREATE_REVIEW_RESET });
+            dispatch(listProductDetails(match.params.id));
         }
-        dispatch(listProductDetails(match.params.id));
     }, [dispatch, match, successProductReview]);
 
     const addToCartHandler = () => {
@@ -131,6 +132,7 @@ const ProductScreen = ({ history, match }) => {
                                 <ListGroup.Item>
                                     <h2>Write a Customer Review</h2>
                                     {loadingProductReview && <Loader />}
+                                    {successProductReview && <Message variant="success">Review Submitted!</Message>}
                                     {errorProductReview && <Message variant="danger">{errorProductReview}</Message>}
                                     {userInfo ? (
                                         <Form onSubmit={reviewSubmitHandler}>
