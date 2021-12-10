@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { listProductDetails, createProductReview } from "../actions/productActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
+import Meta from "../components/Meta";
 import Rating from "../components/Rating";
 import { PRODUCT_CREATE_REVIEW_RESET } from "../constants/productConstants";
 
@@ -55,6 +56,7 @@ const ProductScreen = ({ history, match }) => {
                 <Message variant="danger">{error}</Message>
             ) : (
                 <>
+                    <Meta title={product.name} />
                     <Row>
                         <Col md={6}>
                             <Image src={product.image} alt={product.name} fluid />
